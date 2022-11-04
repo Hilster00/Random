@@ -1,5 +1,6 @@
 import copy
 from itertools import groupby
+from functools import reduce
 alunos=[
     {'nome':'Hilster','notas':[10,10]},
     {'nome':'Carlos','notas':[6,8]},
@@ -32,3 +33,6 @@ for i,j in al2:
     print(f"Nota 2 ={i}")
     for a in j:
         print(f"\t{a}")
+print()
+print(f"Soma de todas as notas 1:{reduce(lambda sm, i: i['notas'][0]+ sm, alunos,0)}")
+print(f"Soma de todas as notas 1:{reduce(lambda sm, i: i['notas'][1]+ sm, alunos,0)}")

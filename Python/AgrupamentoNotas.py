@@ -34,5 +34,5 @@ for i,j in al2:
     for a in j:
         print(f"\t{a}")
 print()
-print(f"Soma de todas as notas 1:{reduce(lambda sm, i: i['notas'][0]+ sm, alunos,0)}")
-print(f"Soma de todas as notas 1:{reduce(lambda sm, i: i['notas'][1]+ sm, alunos,0)}")
+print(f"Media das notas 1:{reduce(lambda sm, i: i['notas'][0]+ sm, alunos,0)/len(alunos)}")
+print(f"Media das notas 1:{reduce(lambda sm, i: i['notas'][1]+ sm, alunos,0)/len(alunos)}")

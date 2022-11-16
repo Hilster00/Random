@@ -28,3 +28,8 @@ def lista():
             #caso todo o laço conclua é adicionado mais um elemento na lista
             palavra.append(65)
             a+=1#modifica o tamanho da lista
+
+            
+a=iter(lista())
+for i in range(1000000):
+    print(next(a))

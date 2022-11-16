@@ -1,6 +1,9 @@
-def lista():
-    palavra=[65]
+def lista(palavra='A'):
+    
+    palavra=[ord(i) for i in palavra[::-1]]
     #lista com a primeira letra
+    a=len(palavra)
+    #tamanho da lista
     a=1
     #tamanho da lista
     

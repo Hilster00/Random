@@ -15,3 +15,28 @@ class numero:
         else:
             raise ValueError(f"Base {base} invalida")
     
+    @classmethod
+    def lista_posicao(cls,i):
+        return cls.__lista[i]    
+        
+    @property
+    def valor(self):
+        return self.__valor
+    
+    @valor.setter
+    def valor(self,valor):
+        self.__valor=[i for i in str(valor)]
+    
+    @classmethod
+    def __decimal(cls,valor,base):
+        d=0
+        for i,va in enumerate(valor[::-1]):
+            d+=cls.__lista.index(va)base*i
+        return d
+        
+    def decimal(self,valor=None,base=None):
+        if valor == None:
+            valor=self.valor
+        if base == None:
+            base=self.__base
+        return self.__decimal(valor,base)

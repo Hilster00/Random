@@ -40,3 +40,46 @@ class numero:
         if base == None:
             base=self.__base
         return self.__decimal(valor,base)
+        
+    def _str_(self):
+        
+        return "{"+f"valor:{''.join(self._valor)},  base:{self._base}"+"}"
+    
+    
+    def somar(self,soma):
+        
+        tamanho_s=len(soma)
+        v=self.valor[::-1]
+        while tamanho_s > len(v):
+            v.append("0")
+
+        soma=soma[::-1]
+        t=0
+        
+        for i in range(len(v)):
+           
+            if tamanho_s > i:
+                
+                t+=self._decimal(soma[i],self.base)+self.decimal(v[i],self._base)
+                if t < self.__base:
+                    v[i]=self.lista_posicao(t)
+                    
+                    t=0
+                else:
+                    t-=self.__base
+                    v[i]=self.lista_posicao(t)
+                    t=1
+        else:
+            if t != 0:
+                v.append(self.lista_posicao(t))
+        
+        return v[::-1]
+        
+    def _add_(self,*valores):
+        for v in valores:
+            if type(v) != int:
+                valor=v.valor
+            else:
+                valor=[i for i in str(v)]
+            self.__valor=self.somar(valor)
+        return self
